@@ -1,0 +1,3 @@
+rootProject.name = 'bumbles5'
+
+include ':app'

@@ -25,6 +25,7 @@ project.xcworkspace
 # Android/IntelliJ
 #
 mobile/bumbles/android/build/
+mobile/bumbles/android/app/build/
 .idea
 .gradle
 local.properties
@@ -33,9 +34,9 @@ local.properties
 # node.js
 #
 mobile/node_modules/
-#mobile/bumbles/node_modules/
-npm-debug.log
-yarn-error.log
+mobile/bumbles/node_modules/
+mobile/npm-debug.log
+mobile/yarn-error.log
 
 # BUCK
 buck-out/
