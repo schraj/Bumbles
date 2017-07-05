@@ -26,6 +26,7 @@ export default StyleSheet.create({
   },
   bodyPartControlTree: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    justifyContent: 'flex-start'
   },
 })

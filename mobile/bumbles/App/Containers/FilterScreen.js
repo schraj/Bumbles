@@ -28,8 +28,16 @@ export default class FilterScreen extends React.Component {
           <TouchableHighlight>
             <Image source={Images.bumblebeeWhole} style={styles.bumblebeeImage} >
               <View style={[styles.centered, styles.bodyPartControlTree]}>
-                <SectionColorPicker bodyPart="Head" colorValues={['None', 'Yellow', 'Black']} />
-                <SectionColorPicker bodyPart="T1" colorValues={['None', 'Yellow', 'Black', 'Red']} />
+                <SectionColorPicker bodyPart="Face" colorValues={['None', 'Yellow', 'Black']} controlHeight={50} />
+                <SectionColorPicker bodyPart="Front of Thorax" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={40} />
+                <SectionColorPicker bodyPart="Central Thorax" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={50} />
+                <SectionColorPicker bodyPart="Rear Thorax" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={30} />
+                <SectionColorPicker bodyPart="T1" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={40} />
+                <SectionColorPicker bodyPart="T2" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={50} />
+                <SectionColorPicker bodyPart="T3" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={38} />
+                <SectionColorPicker bodyPart="T4" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={30} />
+                <SectionColorPicker bodyPart="T5" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={28} />
+                <SectionColorPicker bodyPart="T6" colorValues={['None', 'Yellow', 'Black', 'Red']} controlHeight={30} />
               </View>
             </Image>
           </TouchableHighlight>

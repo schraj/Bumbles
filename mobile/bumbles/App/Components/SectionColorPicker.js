@@ -9,16 +9,16 @@ export default class SectionColorPicker extends React.Component {
     bodyPart: PropTypes.string.isRequired,
     defaultValue: PropTypes.string,
     colorValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+    controlHeight: PropTypes.number.isRequired,
   }
 
   render() {
-    const { bodyPart, defaultValue, colorValues } = this.props;
-    let testValue = 'None';
+    const { bodyPart, defaultValue, colorValues, controlHeight } = this.props;
     return (
-      <View style={[styles.centered, styles.bodyPartControl]}>
-        <Text style={styles.bodyPartLabel}>{bodyPart}</Text>
+      <View style={[styles.centered, styles.bodyPartControl, {height:controlHeight}]}>
+        <Text style={[styles.bodyPartLabel, styles.h6]}>{bodyPart}</Text>
         <Picker style={styles.picker}
-          selectedValue={testValue}
+          selectedValue={defaultValue}
         >
           {
             colorValues.map(v => {
