@@ -1,28 +1,42 @@
 import React, { PropTypes } from 'react'
 import { View, Text, Picker } from 'react-native'
+
+import { getColorsForBodyPart } from '../Services/FilterService'
 import styles from './Styles/SectionColorPickerStyles'
 
 export default class SectionColorPicker extends React.Component {
-  static defaultProps = { defaultValue: 'None'}
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedColor: 'Not Chosen',
+    };
+  }
 
   static propTypes = {
     bodyPart: PropTypes.string.isRequired,
-    defaultValue: PropTypes.string,
-    colorValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+    bodyPartCode: PropTypes.string.isRequired,
     controlHeight: PropTypes.number.isRequired,
+    onColorChange: PropTypes.func.isRequired,
+  }
+
+  onSelectionChange(itemValue) {
+    this.setState({selectedColor: itemValue});
+    this.props.onColorChange(itemValue, this.props.bodyPartCode);
   }
 
   render() {
-    const { bodyPart, defaultValue, colorValues, controlHeight } = this.props;
+    const { bodyPart, bodyPartCode, controlHeight } = this.props;
+    const colorValues = getColorsForBodyPart(bodyPartCode);
     return (
       <View style={[styles.centered, styles.bodyPartControl, {height:controlHeight}]}>
         <Text style={[styles.bodyPartLabel, styles.h6]}>{bodyPart}</Text>
         <Picker style={styles.picker}
-          selectedValue={defaultValue}
-        >
+          selectedValue={this.state.selectedColor}
+          onValueChange={(itemValue) => this.onSelectionChange(itemValue)}
+          >
           {
             colorValues.map(v => {
-              return <Picker.Item label={v} value={v} />
+              return <Picker.Item key={v} label={v} value={v} />
             })
           }
         </Picker>
