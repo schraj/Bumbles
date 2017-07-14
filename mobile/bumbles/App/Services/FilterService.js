@@ -88,7 +88,7 @@ export const getBodyPartIndex = (bodyPartCode) => {
 }
 
 export const getColorsForBodyPart = (bodyPartCode) => {
-    const bodyPartIndex = getBodyPartIndex(i => i === bodyPartCode)
+    const bodyPartIndex = getBodyPartIndex(bodyPartCode);
     let uniqueColors = new Set();
     uniqueColors.add('Not Chosen');
     beeArray.forEach(b => {
@@ -96,8 +96,16 @@ export const getColorsForBodyPart = (bodyPartCode) => {
             uniqueColors.add(b.bodyParts[bodyPartIndex]);
         }
     });
-    
-    return Array.from(uniqueColors);
+
+    const colorsArray = Array.from(uniqueColors);  
+    const newArray = [];
+    colorsArray.forEach(v => {
+        if (v != null) {
+            newArray.push(v);
+        }
+    });
+
+    return newArray;
 }
 
 export const filter = (attributeArray) => {
