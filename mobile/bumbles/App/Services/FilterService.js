@@ -1,6 +1,4 @@
 const category = ['Red Somewhere On Abdomen', 'Striped, No Red', 'White', 'Black Butt, No Red']
-// const bodySize = ['Smaller', 'Large'];
-// const colors = [null, 'Cloudy', 'Dark', 'Dark Band', 'Yellow', 'Golden', 'Red', 'Black', 'Brown'];
 const blackTail = { 
     name: 'Black tail BB', 
     category: 1, 
@@ -90,7 +88,7 @@ export const getBodyPartIndex = (bodyPartCode) => {
 export const getColorsForBodyPart = (bodyPartCode) => {
     const bodyPartIndex = getBodyPartIndex(bodyPartCode);
     let uniqueColors = new Set();
-    uniqueColors.add('Not Chosen');
+    uniqueColors.add('NC');
     beeArray.forEach(b => {
         if (b.bodyParts[bodyPartIndex] !== null) {
             uniqueColors.add(b.bodyParts[bodyPartIndex]);

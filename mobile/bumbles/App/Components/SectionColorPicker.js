@@ -8,7 +8,7 @@ export default class SectionColorPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedColor: 'Not Chosen',
+      selectedColor: 'NC',
     };
   }
 

@@ -10,19 +10,14 @@ import styles from './Styles/FilterScreenStyles'
 export default class FilterScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.state = {      
       attributeArray: [null, null, null, null, null, null, null, null, null, null],
       filteredBeeArray: [],
     };
   }
 
-  _onImageChange({ nativeEvent: { locationX, locationY } }) {
-    Alert.alert('pos:' + locationY);
-    // 50, 90, 140, 175, 208, 262, 295, 327, 350 
-  }
-
   onColorChange(color, bodyPartCode) {
-    let chosenColor = color !== 'Not Chosen' ? color : null;
+    let chosenColor = color !== 'NC' ? color : null;
     const bodyPartIndex = getBodyPartIndex(bodyPartCode);
 
     attributeArray = [...this.state.attributeArray];
@@ -64,14 +59,20 @@ export default class FilterScreen extends React.Component {
             </Image>
           </TouchableHighlight>
           <View style={styles.section} >
-            {this.state.filteredBeeArray.length === 0 && 
+            {this.state.attributeArray.every(i => i === null) && 
               <Text style={styles.sectionText}>
                 Click on a section above to add a color.
               </Text>
             }
 
+            {(!this.state.attributeArray.every(i => i === null)) && this.state.filteredBeeArray.length === 0 && 
+              <Text style={styles.sectionText}>
+                None Selected
+              </Text>
+            }
+
             {this.state.filteredBeeArray.length > 0 && this.state.filteredBeeArray.map(b => {
-                return <Text key={b.name} style={styles.sectionText}>
+                return <Text key={b.name} style={styles.filteredItemText}>
                           {b.name}
                        </Text>
               })

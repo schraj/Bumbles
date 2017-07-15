@@ -29,4 +29,8 @@ export default StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-start'
   },
+  filteredItemText: {
+    ...ApplicationStyles.screen.sectionText,
+    paddingVertical: Metrics.smallMargin,
+  }
 })
